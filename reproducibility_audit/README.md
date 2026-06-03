@@ -1,5 +1,7 @@
 # Reproducibility audit (Supporting Information S3)
 
+**Authors:** Martha Vera Licona; Paola Vera-Licona (Vera-Licona Research Group)
+
 The audit matrix lives in [`../data/SI_3_ReproducibilityAudit.xlsx`](../data/SI_3_ReproducibilityAudit.xlsx).
 
 Scores were assigned by manual review of each method's public code deposit and

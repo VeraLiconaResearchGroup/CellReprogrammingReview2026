@@ -11,7 +11,7 @@ Usage:
 Requirements:
     pip install biopython pandas matplotlib seaborn
 
-Author: Vera-Licona Lab
+Author: Martha Vera Licona; Paola Vera-Licona (Vera-Licona Research Group)
 Purpose: Supplementary analysis for cell reprogramming computational methods review
 """
 

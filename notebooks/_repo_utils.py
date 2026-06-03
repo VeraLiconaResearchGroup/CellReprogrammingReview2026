@@ -1,5 +1,9 @@
 
-"""Shared helpers for reproduction notebooks."""
+"""Shared helpers for reproduction notebooks.
+
+Authors: Martha Vera Licona; Paola Vera-Licona (Vera-Licona Research Group,
+University of Connecticut School of Medicine)
+"""
 from __future__ import annotations
 
 import subprocess

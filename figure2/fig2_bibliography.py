@@ -1,5 +1,8 @@
 """Bibliography indices for Figure 2 method labels.
 
+Authors: Martha Vera Licona; Paola Vera-Licona (Vera-Licona Research Group,
+University of Connecticut School of Medicine)
+
 Superscript numbers match the numbered References list in the submitted
 manuscript (PLOS numeric citeproc order). The mapping is frozen in
 ``citekey_to_ref_num.json`` so Figure 2 can be regenerated without pandoc.

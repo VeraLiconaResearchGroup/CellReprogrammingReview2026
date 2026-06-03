@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 # Regenerate all offline artifacts: Figure 2, Figure 3, Supporting Information S4.
+# Authors: Martha Vera Licona; Paola Vera-Licona (Vera-Licona Research Group)
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"

@@ -1,4 +1,5 @@
 # Shared dependencies for figure and table scripts in this repository.
+# Authors: Martha Vera Licona; Paola Vera-Licona (Vera-Licona Research Group)
 matplotlib>=3.4
 openpyxl>=3.0
 pandas>=1.3

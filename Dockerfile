@@ -1,5 +1,8 @@
 FROM python:3.11-slim-bookworm
 
+LABEL org.opencontainers.image.authors="Martha Vera Licona, Paola Vera-Licona"
+LABEL org.opencontainers.image.title="Cell Reprogramming Review 2026 reproduction materials"
+
 WORKDIR /repo
 
 # Matplotlib needs a writable config dir when running as non-root in some setups.
