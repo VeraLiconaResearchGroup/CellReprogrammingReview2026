@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Regenerate Supporting Information S5 bibliometric CSVs and plot.
-# Authors: Martha Vera Licona; Paola Vera-Licona (Vera-Licona Research Group)
+# Author: Paola Vera-Licona (Vera-Licona Research Group)
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"

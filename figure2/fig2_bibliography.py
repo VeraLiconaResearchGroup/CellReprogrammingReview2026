@@ -1,6 +1,6 @@
 """Bibliography indices for Figure 2 method labels.
 
-Authors: Martha Vera Licona; Paola Vera-Licona (Vera-Licona Research Group,
+Author: Paola Vera-Licona (Vera-Licona Research Group,
 University of Connecticut School of Medicine)
 
 Superscript numbers match the numbered References list in the submitted

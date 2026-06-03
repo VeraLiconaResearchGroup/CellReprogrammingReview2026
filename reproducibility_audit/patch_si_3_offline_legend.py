@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Insert explicit OFFLINE definition into SI_3_ReproducibilityAudit.xlsx legend.
 
-Authors: Martha Vera Licona; Paola Vera-Licona (Vera-Licona Research Group,
+Author: Paola Vera-Licona (Vera-Licona Research Group,
 University of Connecticut School of Medicine)
 """
 

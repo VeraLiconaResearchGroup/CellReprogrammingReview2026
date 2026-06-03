@@ -1,5 +1,5 @@
 # Requirements for bibliometric analysis
-# Authors: Martha Vera Licona; Paola Vera-Licona (Vera-Licona Research Group)
+# Author: Paola Vera-Licona (Vera-Licona Research Group)
 # Install with: pip install -r requirements_bibliometric.txt
 
 biopython>=1.79

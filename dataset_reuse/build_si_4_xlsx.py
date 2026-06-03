@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Build SI_4_DatasetReuse.xlsx — styled like S1/S2 submission tables.
 
-Authors: Martha Vera Licona; Paola Vera-Licona (Vera-Licona Research Group,
+Author: Paola Vera-Licona (Vera-Licona Research Group,
 University of Connecticut School of Medicine)
 """
 

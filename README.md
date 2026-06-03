@@ -1,6 +1,6 @@
 # Computational Cell Reprogramming Review — Reproduction Materials
 
-**Authors:** Martha Vera Licona; Paola Vera-Licona (corresponding author, veralicona@uchc.edu)  
+**Author:** Paola Vera-Licona (veralicona@uchc.edu)  
 **Affiliation:** Vera-Licona Research Group, University of Connecticut School of Medicine, Farmington, CT, USA
 
 Public reproduction package for the PLOS Computational Biology submission  
@@ -137,5 +137,5 @@ CellReprogrammingReview2026/
 If you use these materials, please cite the PLOS Computational Biology article
 (DOI to be added upon acceptance) and this repository:
 
-> Vera Licona, M.; Vera-Licona, P. (2026). *Computational Cell Reprogramming Review —
+> Vera-Licona, P. (2026). *Computational Cell Reprogramming Review —
 > Reproduction Materials*. GitHub: VeraLiconaResearchGroup/CellReprogrammingReview2026.
