@@ -1,0 +1,14 @@
+__pycache__/
+*.py[cod]
+.DS_Store
+.venv/
+venv/
+.env
+*.egg-info/
+figure2/Fig2_modality_upset.*
+figure3/Fig3_reproducibility.*
+dataset_reuse/SI_4_DatasetReuse*.xlsx
+bibliometric/bibliometric_analysis_*.png
+bibliometric/pubmed_trend_*.csv
+bibliometric/pmc_trend_*.csv
+bibliometric/results*/

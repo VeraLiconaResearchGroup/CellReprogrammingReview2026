@@ -1,0 +1,4 @@
+# Shared dependencies for figure and table scripts in this repository.
+matplotlib>=3.4
+openpyxl>=3.0
+pandas>=1.3

@@ -1,0 +1,144 @@
+Method,DatasetType,Accession,Source
+CellNet,Other,GEO_BULK_MICROARRAY_COMPENDIUM,DatasetsUsed_Comprehensive
+D'Alessio et al.,GEO,GSE64264,DatasetsUsed_Comprehensive
+Mogrify (Rackham et al),Other,FANTOM5,DatasetsUsed_Comprehensive
+Mogrify (Rackham et al),GEO,GSE14897,DatasetsUsed_Comprehensive
+Mogrify (Rackham et al),GEO,GSE65136,DatasetsUsed_Comprehensive
+OncoTreat,Other,ARACNE_VIPER_REGULONS,DatasetsUsed_Comprehensive
+"TransSynW (Messias Ribeiro,.., del Sol)",Other,PANGLAODB,DatasetsUsed_Comprehensive
+ANANSE (Xu et al.),Zenodo,10.5281/ZENODO.3921913,DatasetsUsed_Comprehensive
+ANANSE (Xu et al.),Zenodo,10.5281/ZENODO.4066423,DatasetsUsed_Comprehensive
+ANANSE (Xu et al.),Zenodo,10.5281/ZENODO.4114608,DatasetsUsed_Comprehensive
+ANANSE (Xu et al.),Zenodo,10.5281/ZENODO.4809062,DatasetsUsed_Comprehensive
+ANANSE (Xu et al.),Zenodo,10.5281/ZENODO.4814015,DatasetsUsed_Comprehensive
+ANANSE (Xu et al.),Zenodo,10.5281/ZENODO.4814016,DatasetsUsed_Comprehensive
+ANANSE (Xu et al.),Other,ENCODE,DatasetsUsed_Comprehensive
+ANANSE (Xu et al.),GEO,GSE96760,DatasetsUsed_Comprehensive
+ANANSE (Xu et al.),GEO,GSE98894,DatasetsUsed_Comprehensive
+DECCODE,GEO,GSE70138,DatasetsUsed_Comprehensive
+DECCODE,Other,LINCS_L1000,DatasetsUsed_Comprehensive
+IRENE,ArrayExpress,E-MTAB-6819,DatasetsUsed_Comprehensive
+IRENE,Other,FANTOM5,DatasetsUsed_Comprehensive
+IRENE,GEO,GSE118389,DatasetsUsed_Comprehensive
+IRENE,GEO,GSE132044,DatasetsUsed_Comprehensive
+IRENE,GEO,GSE151091,DatasetsUsed_Comprehensive
+IRENE,GEO,GSE165961,DatasetsUsed_Comprehensive
+Taiji-reprogram,Other,ENCODE,DatasetsUsed_Comprehensive
+Taiji-reprogram,Other,ROADMAP_EPIGENOMICS,DatasetsUsed_Comprehensive
+cSTAR (Rukhlenko…Kholodenko),GEO,GSE147405,DatasetsUsed_Comprehensive
+PBNs (Tercan…Shmulevich),Zenodo,10.5281/ZENODO.6954489,DatasetsUsed_Comprehensive
+PBNs (Tercan…Shmulevich),GEO,GSE116256,DatasetsUsed_Comprehensive
+NETISCE — NETwork drIven analySis of CEllular reprogramming,GEO,GSE88928,DatasetsUsed_Comprehensive
+scREMOTE (single cell REprogramming MOdel Through cis-regulatory Elements),GEO,GSE140203,DatasetsUsed_Comprehensive
+TRANSDIRE,GEO,GSE7307,DatasetsUsed_Comprehensive
+CellOracle (Kamimoto et al.),ArrayExpress,E-MTAB-7324,DatasetsUsed_Comprehensive
+CellOracle (Kamimoto et al.),ArrayExpress,E-MTAB-7325,DatasetsUsed_Comprehensive
+CellOracle (Kamimoto et al.),GEO,GSE112824,DatasetsUsed_Comprehensive
+CellOracle (Kamimoto et al.),GEO,GSE145298,DatasetsUsed_Comprehensive
+CellOracle (Kamimoto et al.),GEO,GSE72859,DatasetsUsed_Comprehensive
+CellOracle (Kamimoto et al.),GEO,GSE96769,DatasetsUsed_Comprehensive
+CellOracle (Kamimoto et al.),BioProject,PRJNA606682,DatasetsUsed_Comprehensive
+CellOracle (Kamimoto et al.),SRA,SRR8119827,DatasetsUsed_Comprehensive
+CellOracle (Kamimoto et al.),SRA,SRR8119833,DatasetsUsed_Comprehensive
+CellOracle (Kamimoto et al.),SRA,SRR8119835,DatasetsUsed_Comprehensive
+CellOracle (Kamimoto et al.),SRA,SRR8119839,DatasetsUsed_Comprehensive
+CellOracle (Kamimoto et al.),SRA,SRR8119864,DatasetsUsed_Comprehensive
+scANANSE,Zenodo,10.5281/ZENODO.7575107,DatasetsUsed_Comprehensive
+scANANSE,Other,ENCODE,DatasetsUsed_Comprehensive
+scANANSE,GEO,GSE164378,DatasetsUsed_Comprehensive
+PC3T,GEO,GSE70138,DatasetsUsed_Comprehensive
+PC3T,Other,LINCS_L1000,DatasetsUsed_Comprehensive
+SiPER,GEO,GSE162908,DatasetsUsed_Comprehensive
+SiPER,GEO,GSE162909,DatasetsUsed_Comprehensive
+Transfer Learning (Wytock et al.),GEO,GPL570,DatasetsUsed_Comprehensive
+Transfer Learning (Wytock et al.),GEO,GSE36139,DatasetsUsed_Comprehensive
+Transfer Learning (Wytock et al.),GEO,GSE7307,DatasetsUsed_Comprehensive
+CAESAR,GEO,GSE17316,DatasetsUsed_Comprehensive
+CAESAR,GEO,GSE62155,DatasetsUsed_Comprehensive
+DIRECTEUR,GEO,GSE22292,DatasetsUsed_Comprehensive
+DIRECTEUR,GEO,GSE27174,DatasetsUsed_Comprehensive
+CellCartographer,GEO,GSE214951,DatasetsUsed_Comprehensive
+BoNesis + CABEAN + Ensemble MaBoSS,Zenodo,10.5281/ZENODO.16990754,DatasetsUsed_Comprehensive
+BoNesis + CABEAN + Ensemble MaBoSS,BioProject,PRJEB82479,DatasetsUsed_Comprehensive
+TFcomb,ArrayExpress,E-MTAB-11616,DatasetsUsed_Comprehensive
+TFcomb,GEO,GSE140203,DatasetsUsed_Comprehensive
+TFcomb,GEO,GSE174367,DatasetsUsed_Comprehensive
+TFcomb,GEO,GSE217215,DatasetsUsed_Comprehensive
+TFcomb,GEO,GSM4644946,DatasetsUsed_Comprehensive
+TFcomb,GEO,GSM4644948,DatasetsUsed_Comprehensive
+TFcomb,GEO,GSM4644956,DatasetsUsed_Comprehensive
+TFcomb,GEO,GSM5696148,DatasetsUsed_Comprehensive
+TFcomb,GEO,GSM5696149,DatasetsUsed_Comprehensive
+TFcomb,GEO,GSM5795776,DatasetsUsed_Comprehensive
+REVERT,GEO,GSE283167,DatasetsUsed_Comprehensive
+Drug Reflector,Zenodo,10.5281/ZENODO.16912445,DatasetsUsed_Comprehensive
+Drug Reflector,Zenodo,10.5281/ZENODO.16921906,DatasetsUsed_Comprehensive
+Drug Reflector,Zenodo,10.5281/ZENODO.16921928,DatasetsUsed_Comprehensive
+Drug Reflector,Other,CMAP,DatasetsUsed_Comprehensive
+Drug Reflector,Other,DEPMAP_ACHILLES,DatasetsUsed_Comprehensive
+Drug Reflector,GEO,GSE305370,DatasetsUsed_Comprehensive
+Drug Reflector,GEO,GSE305979,DatasetsUsed_Comprehensive
+Drug Reflector,GEO,GSE306429,DatasetsUsed_Comprehensive
+Drug Reflector,Other,LINCS_L1000,DatasetsUsed_Comprehensive
+PDGrapher,Zenodo,10.5281/ZENODO.15375990,DatasetsUsed_Comprehensive
+PDGrapher,Zenodo,10.5281/ZENODO.15390483,DatasetsUsed_Comprehensive
+PDGrapher,Other,BIOGRID,DatasetsUsed_Comprehensive
+PDGrapher,Other,CMAP,DatasetsUsed_Comprehensive
+PDGrapher,Other,LINCS_L1000,DatasetsUsed_Comprehensive
+PDGrapher,Other,STRING,DatasetsUsed_Comprehensive
+REVIVE,Other,AGEANNO,DatasetsUsed_Comprehensive
+REVIVE,Other,AGING_ATLAS,DatasetsUsed_Comprehensive
+REVIVE,Other,DRUGAGE,DatasetsUsed_Comprehensive
+REVIVE,Other,GTEX,DatasetsUsed_Comprehensive
+REVIVE,Other,LINCS_L1000,DatasetsUsed_Comprehensive
+REVIVE,Other,MULTITIMER,DatasetsUsed_Comprehensive
+CANDiT,Other,CLINICALTRIALS_GOV,DatasetsUsed_Comprehensive
+CANDiT,GEO,GPL570,DatasetsUsed_Comprehensive
+CANDiT,GEO,GSE10843,DatasetsUsed_Comprehensive
+CANDiT,GEO,GSE13067,DatasetsUsed_Comprehensive
+CANDiT,GEO,GSE14333,DatasetsUsed_Comprehensive
+CANDiT,GEO,GSE17538,DatasetsUsed_Comprehensive
+CANDiT,GEO,GSE237623,DatasetsUsed_Comprehensive
+CANDiT,GEO,GSE237624,DatasetsUsed_Comprehensive
+CANDiT,GEO,GSE237625,DatasetsUsed_Comprehensive
+CANDiT,GEO,GSE31255,DatasetsUsed_Comprehensive
+CANDiT,GEO,GSE31595,DatasetsUsed_Comprehensive
+CANDiT,GEO,GSE33113,DatasetsUsed_Comprehensive
+CANDiT,GEO,GSE37892,DatasetsUsed_Comprehensive
+CANDiT,GEO,GSE39582,DatasetsUsed_Comprehensive
+CANDiT,GEO,GSE40492,DatasetsUsed_Comprehensive
+CANDiT,GEO,GSE77953,DatasetsUsed_Comprehensive
+CANDiT,GEO,GSE87211,DatasetsUsed_Comprehensive
+SwitchTFI,Zenodo,10.5281/ZENODO.1208723,DatasetsUsed_Comprehensive
+SwitchTFI,Zenodo,10.5281/ZENODO.17182180,DatasetsUsed_Comprehensive
+SwitchTFI,Zenodo,10.5281/ZENODO.17184571,DatasetsUsed_Comprehensive
+Atlas-guided T-cell programming,Other,ENCODE,DatasetsUsed_Comprehensive
+Atlas-guided T-cell programming,GEO,GSE10898,DatasetsUsed_Comprehensive
+Atlas-guided T-cell programming,GEO,GSE123814,DatasetsUsed_Comprehensive
+Atlas-guided T-cell programming,GEO,GSE125449,DatasetsUsed_Comprehensive
+Atlas-guided T-cell programming,GEO,GSE139324,DatasetsUsed_Comprehensive
+Atlas-guided T-cell programming,GEO,GSE156728,DatasetsUsed_Comprehensive
+Atlas-guided T-cell programming,GEO,GSE181785,DatasetsUsed_Comprehensive
+Atlas-guided T-cell programming,GEO,GSE199565,DatasetsUsed_Comprehensive
+Atlas-guided T-cell programming,GEO,GSE240822,DatasetsUsed_Comprehensive
+Atlas-guided T-cell programming,GEO,GSE279498,DatasetsUsed_Comprehensive
+Atlas-guided T-cell programming,GEO,GSE98638,DatasetsUsed_Comprehensive
+Atlas-guided T-cell programming,GEO,GSE99254,DatasetsUsed_Comprehensive
+Atlas-guided T-cell programming,BioProject,PRJNA768891,DatasetsUsed_Comprehensive
+REPROcode,Other,ADDGENE,DatasetsUsed_Comprehensive
+REPROcode,ArrayExpress,E-MTAB-11536,DatasetsUsed_Comprehensive
+REPROcode,GEO,GSE131957,DatasetsUsed_Comprehensive
+REPROcode,GEO,GSE159786,DatasetsUsed_Comprehensive
+REPROcode,GEO,GSE162650,DatasetsUsed_Comprehensive
+REPROcode,GEO,GSE200174,DatasetsUsed_Comprehensive
+REPROcode,GEO,GSE201333,DatasetsUsed_Comprehensive
+REPROcode,GEO,GSE216481,DatasetsUsed_Comprehensive
+REPROcode,GEO,GSE298471,DatasetsUsed_Comprehensive
+REPROcode,GEO,GSE298487,DatasetsUsed_Comprehensive
+REPROcode,GEO,GSE94820,DatasetsUsed_Comprehensive
+TRAPT,Zenodo,10.5281/ZENODO.8080171,DatasetsUsed_Comprehensive
+TRAPT,Other,CHIP-ATLAS,DatasetsUsed_Comprehensive
+TRAPT,Other,CISTROME_DB,DatasetsUsed_Comprehensive
+TRAPT,Other,ENCODE,DatasetsUsed_Comprehensive
+TRAPT,GEO,GSE37820,DatasetsUsed_Comprehensive
+TRAPT,Other,KNOCKTF,DatasetsUsed_Comprehensive
