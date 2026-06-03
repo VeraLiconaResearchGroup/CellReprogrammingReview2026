@@ -13,54 +13,86 @@ This repository contains the minimal scripts and data needed to regenerate:
 | Supporting Information S4 (dataset reuse) | [`dataset_reuse/`](dataset_reuse/) | `SI_4_DatasetReuse.xlsx` |
 | Supporting Information S5 (bibliometric analysis) | [`bibliometric/`](bibliometric/) | trend CSVs + summary plot |
 
-## Setup
+## Quick start (Docker — recommended)
+
+Requires [Docker Desktop](https://www.docker.com/products/docker-desktop/) (or Docker Engine + Compose plugin).
+
+```bash
+# Build the image once
+docker compose build
+
+# Regenerate Figure 2, Figure 3, and SI_4 (offline, ~1 minute)
+docker compose run --rm run-offline
+
+# Bibliometric analysis (network + your NCBI email; ~10–20 minutes)
+NCBI_EMAIL=you@institution.edu docker compose run --rm run-bibliometric
+
+# JupyterLab with guided notebooks
+docker compose up jupyter
+# Open http://localhost:8888 and open notebooks/00_Run_All_Offline.ipynb
+```
+
+Outputs are written into this repository folder (mounted as a volume), so they persist after the container exits.
+
+## Quick start (Jupyter notebooks)
+
+From the repository root:
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements-all.txt
+jupyter lab notebooks/
+```
+
+| Notebook | What it runs |
+| --- | --- |
+| [`notebooks/00_Run_All_Offline.ipynb`](notebooks/00_Run_All_Offline.ipynb) | Figure 3 → Figure 2 → SI_4 |
+| [`notebooks/01_Figure3_Reproducibility.ipynb`](notebooks/01_Figure3_Reproducibility.ipynb) | Figure 3 only |
+| [`notebooks/02_Figure2_ModalityUpSet.ipynb`](notebooks/02_Figure2_ModalityUpSet.ipynb) | Figure 2 only |
+| [`notebooks/03_DatasetReuse_Table.ipynb`](notebooks/03_DatasetReuse_Table.ipynb) | SI_4 xlsx only |
+| [`notebooks/04_Bibliometric_Analysis.ipynb`](notebooks/04_Bibliometric_Analysis.ipynb) | SI_5 (set email first; needs network) |
+
+Notebooks call the same Python scripts as the command-line workflow — they are thin wrappers, not duplicate logic.
+
+## Quick start (command line)
 
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
+bash scripts/run_offline.sh
 ```
 
-For the bibliometric script only, also install:
+For bibliometrics, also `pip install -r bibliometric/requirements_bibliometric.txt`, then:
 
 ```bash
-pip install -r bibliometric/requirements_bibliometric.txt
+NCBI_EMAIL=you@institution.edu bash scripts/run_bibliometric.sh
 ```
 
-## Regenerate each artifact
+### Individual scripts
 
-### Figure 2 — modality UpSet plot
+**Figure 2**
 
 ```bash
-cd figure2
-python fig2_modality_upset.py
+cd figure2 && python fig2_modality_upset.py
 ```
 
-Reference superscripts use the frozen map in `figure2/citekey_to_ref_num.json`
-(matching the submitted manuscript's numbered References list).
-
-### Figure 3 — reproducibility audit figure
+**Figure 3**
 
 ```bash
-cd figure3
-python fig3_reproducibility.py
+cd figure3 && python fig3_reproducibility.py
 ```
 
-Reads scores from `data/SI_3_ReproducibilityAudit.xlsx`. Trip-wire asserts verify
-the headline counts quoted in Section 5 (27 runnable, 43 with code, 14 FAIR4RS ≥ 3).
+Reads `data/SI_3_ReproducibilityAudit.xlsx`. Trip-wire asserts verify headline Section 5 counts (27 runnable, 43 with code, 14 FAIR4RS ≥ 3).
 
-### Supporting Information S4 — dataset reuse table
+**Supporting Information S4**
 
 ```bash
-cd dataset_reuse
-python build_si_4_xlsx.py
+cd dataset_reuse && python build_si_4_xlsx.py
 ```
 
-Builds the styled xlsx from the bundled CSVs in `dataset_reuse/data/`.
-
-### Supporting Information S5 — bibliometric analysis
-
-Requires network access and a valid email for NCBI E-utilities.
+**Supporting Information S5**
 
 ```bash
 cd bibliometric
@@ -78,21 +110,26 @@ PubMed/PMC counts may drift slightly as new papers are indexed.
 ```
 CellReprogrammingReview2026/
 ├── data/                         # Supporting Information S3 spreadsheet
+├── notebooks/                    # Guided Jupyter notebooks
+├── scripts/                      # run_offline.sh, run_bibliometric.sh
 ├── reproducibility_audit/        # audit notes + optional xlsx legend patch
 ├── figure2/                      # Figure 2 scripts + reference map
 ├── figure3/                      # Figure 3 script
 ├── dataset_reuse/                # SI_4 builder + input CSVs
 ├── bibliometric/                 # SI_5 PubMed/PMC queries
-├── requirements.txt
+├── Dockerfile
+├── docker-compose.yml
+├── requirements.txt              # core deps (figures + SI_4)
+├── requirements-all.txt          # core + bibliometric + Jupyter
 └── LICENSE                       # MIT (code)
 ```
 
 ## Licenses
 
-- **Code** (Python scripts): [MIT License](LICENSE)
+- **Code** (Python scripts, notebooks, Docker files): [MIT License](LICENSE)
 - **Data** (CSV/xlsx tables in `data/` and `dataset_reuse/data/`): CC BY 4.0
 
 ## Citation
 
 If you use these materials, please cite the PLOS Computational Biology article
-( DOI to be added upon acceptance ) and this repository.
+(DOI to be added upon acceptance) and this repository.
