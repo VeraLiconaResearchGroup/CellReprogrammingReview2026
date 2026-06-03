@@ -1,7 +1,7 @@
 # Computational Cell Reprogramming Review — Reproduction Materials
 
 **Author:** Paola Vera-Licona (veralicona@uchc.edu)  
-**Affiliation:** Vera-Licona Research Group, University of Connecticut School of Medicine, Farmington, CT, USA
+**Affiliation:** University of Connecticut School of Medicine, Farmington, CT, USA
 
 Public reproduction package for the PLOS Computational Biology submission  
 *Computational Cell Reprogramming: A Cross-Modality Framework for Cellular Intervention Design* (Vera-Licona Research Group, 2026).
