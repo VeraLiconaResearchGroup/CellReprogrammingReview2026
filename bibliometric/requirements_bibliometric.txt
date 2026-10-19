@@ -1,8 +1,0 @@
-# Requirements for bibliometric analysis
-# Author: Paola Vera-Licona (Vera-Licona Research Group)
-# Install with: pip install -r requirements_bibliometric.txt
-
-biopython>=1.79
-pandas>=1.3.0
-matplotlib>=3.4.0
-seaborn>=0.11.0

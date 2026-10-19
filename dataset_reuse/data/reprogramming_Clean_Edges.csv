@@ -136,9 +136,18 @@ REPROcode,GEO,GSE216481,DatasetsUsed_Comprehensive
 REPROcode,GEO,GSE298471,DatasetsUsed_Comprehensive
 REPROcode,GEO,GSE298487,DatasetsUsed_Comprehensive
 REPROcode,GEO,GSE94820,DatasetsUsed_Comprehensive
-TRAPT,Zenodo,10.5281/ZENODO.8080171,DatasetsUsed_Comprehensive
-TRAPT,Other,CHIP-ATLAS,DatasetsUsed_Comprehensive
-TRAPT,Other,CISTROME_DB,DatasetsUsed_Comprehensive
-TRAPT,Other,ENCODE,DatasetsUsed_Comprehensive
-TRAPT,GEO,GSE37820,DatasetsUsed_Comprehensive
-TRAPT,Other,KNOCKTF,DatasetsUsed_Comprehensive
+Reprogram-Seq,GEO,GSE117795,DatasetsUsed_Comprehensive
+Reprogram-Seq,Other,TABULA_MURIS,DatasetsUsed_Comprehensive
+TF Atlas,Zenodo,10.5281/ZENODO.7466207,DatasetsUsed_Comprehensive
+TF Atlas,Other,ADDGENE,DatasetsUsed_Comprehensive
+TF Atlas,GEO,GSE216481,DatasetsUsed_Comprehensive
+Iterative TF screening,Zenodo,10.5281/ZENODO.15026232,DatasetsUsed_Comprehensive
+Iterative TF screening,Other,ADDGENE,DatasetsUsed_Comprehensive
+Iterative TF screening,GEO,GSE287847,DatasetsUsed_Comprehensive
+Iterative TF screening,GEO,GSE287850,DatasetsUsed_Comprehensive
+Iterative TF screening,GEO,GSE287851,DatasetsUsed_Comprehensive
+Iterative TF screening,GEO,GSE287852,DatasetsUsed_Comprehensive
+Iterative TF screening,GEO,GSE287853,DatasetsUsed_Comprehensive
+Briggs combinatorial TF landscape,Zenodo,10.5281/ZENODO.19488490,DatasetsUsed_Comprehensive
+Briggs combinatorial TF landscape,Other,ADDGENE,DatasetsUsed_Comprehensive
+Briggs combinatorial TF landscape,GEO,GSE328457,DatasetsUsed_Comprehensive

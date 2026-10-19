@@ -5,11 +5,16 @@ __pycache__/
 venv/
 .env
 *.egg-info/
-figure2/Fig2_modality_upset.*
-figure3/Fig3_reproducibility.*
-dataset_reuse/SI_4_DatasetReuse*.xlsx
-bibliometric/bibliometric_analysis_*.png
-bibliometric/pubmed_trend_*.csv
-bibliometric/pmc_trend_*.csv
 .ipynb_checkpoints/
 notebooks/.ipynb_checkpoints/
+
+# Regenerated figure outputs (rebuild with scripts/run_offline.sh)
+figure1/Fig1_assignment.*
+!figure1/fig1_assignment.py
+figure2/Fig2_settings_classes.*
+s3_figure1/S3_Fig1.*
+
+# Regenerated SI_4 workbook at package root of dataset_reuse/
+# Keep input CSVs; the xlsx is regenerated (a frozen copy also lives in supporting_information/)
+dataset_reuse/SI_4_DatasetReuse.xlsx
+dataset_reuse/SI_4_DatasetReuse*.xlsx

@@ -1,6 +1,4 @@
-# Full environment: core scripts, bibliometric analysis, and Jupyter notebooks.
-# Author: Paola Vera-Licona (Vera-Licona Research Group)
+# Full environment: core scripts and Jupyter notebooks.
 -r requirements.txt
--r bibliometric/requirements_bibliometric.txt
 jupyter>=1.0.0
 ipykernel>=6.29.0

@@ -1,0 +1,99 @@
+"# Supplementary Table S2 (v3, 60 methods) — UPDATED 2026-09-18. Keepers 1-56 retain the 2026-05-04 S2 v2 scores. TRAPT (old row 57) dropped (M2 fail). Rows 57-60: Reprogram-Seq, TF Atlas, Iterative TF screening, Briggs combinatorial TF landscape. Newly_Added_v3 flags the four new rows."
+"Supplementary Table S2. Reproducibility & FAIR4RS Assessment Matrix (v3, 60 computational methods)"
+Generated: 2026-09-18 (v3). 51-method audit: January/December 2025; 6-method v2 extension 2026-05-04; v3: drop TRAPT; add four experimental-screen methods. FAIR4RS principles per Barker et al. 2022.
+#,Method Name,PMID,Reprog Types,Tool Avail,Has Docs,Has Examples,Has Tutorial,Repro Score,Lic,Ver,DOI,Env,Cite,FAIR4RS Score,Newly_Added_v3
+1,Crespo & Del Sol,23873656,T,No,-,-,-,N/A,-,-,-,-,-,N/A,
+2,Cornelius,23803966,P,No,-,-,-,N/A,-,-,-,-,-,N/A,
+3,FVS (Mochizuki),23774067,D;P,No,-,-,-,N/A,-,-,-,-,-,N/A,
+4,DEPCs,24350678,D;I;P;T,No,-,-,-,N/A,-,-,-,-,-,N/A,
+5,CellNet,25126793,D;I;T,Yes,✓,✓,✓,4/4,✓,✓,✗,✓,✗,3/5,
+6,Hopfield NN,25122086,D;I;T,No,-,-,-,N/A,-,-,-,-,-,N/A,
+7,StableMotifs,25849586,D;P,Yes,✓,✓,✓,4/4,✗,✗,✗,✗,✗,0/5,
+8,D'Alessio,26603904,T,No,-,-,-,N/A,-,-,-,-,-,N/A,
+9,Mogrify,26780608,T,⚠️OFFLINE,-,-,-,N/A,-,-,-,-,-,N/A,
+10,Murrugarra,27662842,P,Yes,~,✓,✗,2/4,✗,✗,✗,✗,✗,0/5,
+11,Toggle Switches,27546532,D,No,-,-,-,N/A,-,-,-,-,-,N/A,
+12,Del Vecchio,28065574,D;I;P,No,-,-,-,N/A,-,-,-,-,-,N/A,
+13,Zanudo FVS,28655847,D;P,Yes,✓,✓,✓,4/4,✗,✗,✗,✗,✗,0/5,
+14,DGC,29078370,I;T,No,-,-,-,N/A,-,-,-,-,-,N/A,
+15,PCK,29622038,P,No,-,-,-,N/A,-,-,-,-,-,N/A,
+16,LDOI,29867523,P,Yes,✓,✓,✓,4/4,✗,✗,✗,✗,✗,0/5,
+17,OCSANA+,32879935,D;P,Yes,✓,✓,✓,4/4,✓,✗,✗,✓,✗,2/5,
+18,SeesawPred,30190516,D,Yes,✓,✓,✓,4/4,✗,✗,✗,✓,✗,1/5,
+19,OncoTreat,29915428,P,Yes,✓,✓,~,3/4,✓,✓,✗,✓,✗,3/5,
+20,BRC,31511585,P,No,-,-,-,N/A,-,-,-,-,-,N/A,
+21,SynergisticCore,30820550,T,Yes,✓,✓,~,3/4,✗,✗,✗,~,✗,0/5,
+22,BoolIFFNN,33335489,D;P,No,-,-,-,N/A,-,-,-,-,-,N/A,
+23,Sordo,31919596,P,Yes,✓,✓,✗,3/4,✗,✗,✗,✗,✗,0/5,
+24,Aguilar,34141873,P,Yes,✓,✓,✗,3/4,✗,✗,✗,✗,✗,0/5,
+25,TransSynW,33125830,D;T,Yes,✓,✓,✓,4/4,✗,✗,✗,~,✗,0/5,
+26,ANANSE,34244796,I;T,Yes,✓,✓,✓,4/4,✓,✓,✗,✓,✗,3/5,
+27,CABEAN,32845335,P;T,Yes,✓,✓,✓,4/4,✗,✓,✗,✗,✗,1/5,
+28,DECCODE,33891873,I,Yes,No,Yes,No,2/4,Yes,Yes,Yes,No,No,3/5,
+29,IRENE,33712564,D;I;T,Yes,✓,✓,✓,4/4,✗,✗,✗,~,✗,0/5,
+30,Taiji-reprogram,34761218,I;T,Yes,~,✓,✗,2/4,✗,✗,✗,✗,✗,0/5,
+31,CELLoGeNe,35942105,I,Yes,✓,✓,~,3/4,✗,✗,✗,✗,✗,0/5,
+32,cSTAR,36104561,P,Yes,✗,✗,✗,1/4,~,✗,✗,~,✗,0/5,
+33,PBNs,36093045,T,Yes,✓,✓,✓,4/4,✗,✗,✗,~,✗,0/5,
+34,NETISCE,35725577,D;P,Yes,✓,✓,✓,4/4,✓,✓,✗,✓,✗,3/5,
+35,scREMOTE,35300460,D,Yes,~,✓,✗,2/4,✗,✗,✗,✗,✗,0/5,
+36,TRANSDIRE,35561200,T,Yes,✓,✓,~,3/4,✗,✗,✓,~,✗,1/5,
+37,CellOracle,36755098,D;P,Yes,✓,✓,✓,4/4,✓,✓,✗,✓,✗,3/5,
+38,DCGS,36688702,P,Yes,✓,✓,✓,4/4,✗,✗,✗,✓,✗,1/5,
+39,scANANSE,38116584,D,Yes,✓,✓,✓,4/4,✓,✓,✗,✓,✗,3/5,
+40,PC3T,37758874,D;I;T,⚠️OFFLINE,-,-,-,N/A,-,-,-,-,-,N/A,
+41,SiPER,36400030,D;I;P;T,Yes,✓,✓,✓,4/4,✗,✗,✗,✓,✗,1/5,
+42,Transfer Learning,38437548,I;P;T,Yes,✓,✓,✓,4/4,✗,✗,✗,✓,✗,1/5,
+43,CAESAR,39171985,D;P;T,Yes,✓,✓,~,3/4,✗,✗,✗,✗,✗,0/5,
+44,DIRECTEUR,38273708,T,Yes,~,✓,✗,2/4,✗,✗,✗,✗,✗,0/5,
+45,pbn-STAC,N/A,P,Yes,✓,✓,✓,4/4,✗,✗,✗,✓,✗,1/5,
+46,CellCartographer,40382774,D,Yes,✓,✓,~,3/4,✗,✗,✗,~,✗,0/5,
+47,BoNesis+CABEAN,41006334,D;T,Yes,✓,✓,✓,4/4,✓,✓,✗,✓,✗,3/5,
+48,TFcomb,40210438,D;I;T,Yes,✓,✓,✓,4/4,✓,✓,✗,✓,✗,3/5,
+49,REVERT,39840939,P,Yes,✓,✓,✓,4/4,✗,✗,✗,~,✗,0/5,
+50,DrugReflector,41129612,D;P,Yes,✓,✓,✓,4/4,~,✓,✓,✓,✗,3/5,
+51,PDGrapher,40925962,P,Yes,✓,✓,✓,4/4,✓,✓,✓,✓,✗,4/5,
+52,REVIVE,41296513,P,Yes,✓,~,✗,2/4,✓,✗,✗,✗,✗,1/5,YES (red in xlsx)
+53,CANDiT,41118768,P,Yes,✗,✓,~,2/4,✗,✗,✗,✗,✗,0/5,YES (red in xlsx)
+54,SwitchTFI,41331466,D,Yes,✓,✓,✓,4/4,✓,✓,✓,✓,✗,4/5,YES (red in xlsx)
+55,Atlas-guided,41639465,P,Yes,✓,✓,✓,4/4,✓,✗,✗,~,✗,1/5,YES (red in xlsx)
+56,REPROcode,41539305,T,Yes,✓,✓,✓,4/4,~,✓,✓,✓,✗,3/5,YES (red in xlsx)
+57,Reprogram-Seq,31216470,T,Yes,~,✓,✗,2/4,✓,✓,✓,✗,✗,3/5,YES (v3)
+58,TF Atlas,36608654,D,Yes,✓,✗,✗,2/4,✗,✓,✓,✗,✗,2/5,YES (v3)
+59,Iterative TF screening,40494892,D,Yes,✗,✗,✗,1/4,~,✓,✓,✗,✗,2/5,YES (v3)
+60,Briggs combinatorial TF landscape,42314680,D,Yes,✓,✓,✓,4/4,✓,✓,✓,✓,✗,4/5,YES (v3)
+Column Definitions and Legend
+Reproducibility Score (0-4): User-centric assessment of immediate usability
+• Has Docs:,README with clear instructions (1 point)
+• Has Examples:,Working example data/networks to test with (1 point)
+• Has Tutorial:,Step-by-step walkthrough or guide (1 point)
+• Tool availability:,Code/tool is publicly accessible (1 point)
+FAIR4RS Score (0-5): Compliance with FAIR Principles for Research Software (Barker et al. 2022)
+• Lic:,LICENSE file with OSI-approved license present (1 point)
+• Ver:,Versioned releases with semantic versioning or release tags (1 point)
+• DOI:,Archival DOI via Zenodo/Figshare for long-term findability (1 point)
+• Env:,"Environment specification (requirements.txt, conda env, Dockerfile, DESCRIPTION, etc.) (1 point)"
+• Cite:,Citation metadata file (CITATION.cff or codemeta.json) (1 point)
+"Symbols: ✓ = criterion met; ✗ = criterion not met; ~ = partial/informal; - = not applicable (no code available). When integer scoring sums to a 4-point or 5-point total, ~ counts as 0."
+Summary Statistics
+Tool Availability,,,Category,Count,Percentage
+,,,Downloadable code/tool,46,77%
+,,,No publicly available code,12,20%
+,,,Web-based (active),0,0%
+,,,Web-based (OFFLINE),2,3%
+Reproducibility Score Distribution (46 methods with code),,,Score,Count,Percentage,Description
+,,,4/4,27,59%,"Excellent - Docs, Examples, Tutorial, Code"
+,,,3/4,8,17%,Good - Missing tutorial or partial docs
+,,,2/4,9,20%,Fair - Minimal documentation
+,,,1/4,2,4%,"Poor - Code only, no documentation"
+FAIR4RS Score Distribution (46 methods with code),,,Score,Count,Percentage,Description
+,,,4-5/5,3,7%,"Excellent - License, versions, DOI, env"
+,,,3/5,12,26%,Good - Package managers with formal elements
+,,,1-2/5,12,26%,Fair - Some env specs or versioning
+,,,0/5,19,41%,Poor - Academic repos without formal FAIR elements
+FAIR4RS Individual Criteria Compliance (46 methods with code),,,Criterion,Methods Meeting,Percentage,Notes
+,,,License (Lic),16,35%,OSI-approved license file present
+,,,Versioned Release (Ver),18,39%,Tagged releases or semantic versioning
+,,,Archival DOI,10,22%,Zenodo/Figshare persistent identifier
+,,,Environment Spec (Env),19,41%,"requirements.txt, conda env, or similar"
+,,,Citation File (Cite),0,0%,CITATION.cff or codemeta.json

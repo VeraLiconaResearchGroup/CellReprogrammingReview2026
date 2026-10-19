@@ -6,10 +6,7 @@ __pycache__
 *.py[cod]
 .DS_Store
 .ipynb_checkpoints
-figure2/Fig2_modality_upset.*
-figure3/Fig3_reproducibility.*
+figure1/Fig1_assignment.*
+figure2/Fig2_settings_classes.*
+s3_figure1/S3_Fig1.*
 dataset_reuse/SI_4_DatasetReuse*.xlsx
-bibliometric/results
-bibliometric/bibliometric_analysis_*.png
-bibliometric/pubmed_trend_*.csv
-bibliometric/pmc_trend_*.csv

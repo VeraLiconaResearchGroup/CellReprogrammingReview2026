@@ -1,9 +1,5 @@
 #!/usr/bin/env python3
-"""Insert explicit OFFLINE definition into SI_3_ReproducibilityAudit.xlsx legend.
-
-Author: Paola Vera-Licona (Vera-Licona Research Group,
-University of Connecticut School of Medicine)
-"""
+"""Insert explicit OFFLINE definition into SI_3_ReproducibilityAudit.xlsx legend."""
 
 from __future__ import annotations
 
@@ -12,9 +8,9 @@ from pathlib import Path
 import openpyxl
 from openpyxl.styles import Alignment, Font
 
-REPO_ROOT = Path(__file__).resolve().parents[1]
-XLSX = REPO_ROOT / "data" / "SI_3_ReproducibilityAudit.xlsx"
-SHEET = "S2 Table"
+HERE = Path(__file__).resolve().parent
+XLSX = HERE / "SI_3_ReproducibilityAudit.xlsx"
+SHEET = "Resource audit"
 
 # Insert after "• Tool availability:" (row 69).
 INSERT_AT = 70
@@ -40,7 +36,7 @@ BLOCKS: list[tuple[str, str | None, bool]] = [
     (
         "• ⚠️OFFLINE:",
         "Web-only access path; the paper's URL did not load at audit (definition below). "
-        "Repro Score and FAIR4RS Score are N/A.",
+        "The resource score and the FAIR4RS-based score are N/A.",
         False,
     ),
     (
@@ -78,7 +74,7 @@ BLOCKS: list[tuple[str, str | None, bool]] = [
     (
         "Note: DECCODE (row 31) is Tool Avail = Yes because source code is archived on Zenodo; "
         "its companion web UI (https://fantom.gsc.riken.jp/5/cellconv/) was also unreachable in "
-        "December 2025 and is documented in Supporting Information S1 (Code Availability), not as "
+        "December 2025 and is documented in Supporting Information S2 (Code Availability), not as "
         "⚠️OFFLINE in column E.",
         None,
         True,

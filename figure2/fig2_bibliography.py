@@ -1,8 +1,5 @@
 """Bibliography indices for Figure 2 method labels.
 
-Author: Paola Vera-Licona (Vera-Licona Research Group,
-University of Connecticut School of Medicine)
-
 Superscript numbers match the numbered References list in the submitted
 manuscript (PLOS numeric citeproc order). The mapping is frozen in
 ``citekey_to_ref_num.json`` so Figure 2 can be regenerated without pandoc.
@@ -16,7 +13,6 @@ from pathlib import Path
 HERE = Path(__file__).resolve().parent
 DEFAULT_REF_MAP = HERE / "citekey_to_ref_num.json"
 
-# Figure label (fig2_modality_upset.METHODS[0]) -> BibTeX citekey
 METHOD_NAME_TO_CITEKEY: dict[str, str] = {
     "Crespo & Del Sol": "crespo2013",
     "Cornelius": "cornelius2013",
@@ -68,18 +64,20 @@ METHOD_NAME_TO_CITEKEY: dict[str, str] = {
     "TFcomb": "tfcomb2025",
     "REVERT": "revert2025",
     "DrugReflector": "drugreflector2025",
-    "PDGrapher": "pdgrapher2025",
+    "PDGrapher": "pdgrapher2026",
     "REVIVE": "revive2025",
     "CANDiT": "candit2025",
     "SwitchTFI": "switchtfi2025",
-    "TRAPT": "trapt2025",
     "Atlas-guided": "atlasguided2026",
     "REPROcode": "reprocode2026",
+    "Reprogram-Seq": "reprogramseq2019",
+    "TF Atlas": "tfatlas2023",
+    "Iterative TF screening": "iterativetf2025",
+    "Briggs": "briggs2026",
 }
 
 
 def load_citekey_to_ref_num(ref_map: Path = DEFAULT_REF_MAP) -> dict[str, int]:
-    """Return citekey -> numbered reference index (PLOS citeproc order)."""
     if not ref_map.is_file():
         raise FileNotFoundError(
             f"Reference map not found: {ref_map}. "
@@ -112,6 +110,5 @@ def method_name_to_ref_num(
 
 
 def superscript_number(n: int) -> str:
-    """Render a positive integer as Unicode superscript digits."""
     trans = str.maketrans("0123456789", "⁰¹²³⁴⁵⁶⁷⁸⁹")
     return str(n).translate(trans)

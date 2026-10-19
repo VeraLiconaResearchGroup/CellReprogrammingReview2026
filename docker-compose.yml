@@ -13,15 +13,6 @@ services:
       - .:/repo
     command: bash scripts/run_offline.sh
 
-  run-bibliometric:
-    image: cellreprogramming-review-2026:latest
-    working_dir: /repo
-    volumes:
-      - .:/repo
-    environment:
-      NCBI_EMAIL: ${NCBI_EMAIL:-your.email@institution.edu}
-    command: bash scripts/run_bibliometric.sh
-
   jupyter:
     image: cellreprogramming-review-2026:latest
     working_dir: /repo

@@ -1,9 +1,4 @@
-
-"""Shared helpers for reproduction notebooks.
-
-Author: Paola Vera-Licona (Vera-Licona Research Group,
-University of Connecticut School of Medicine)
-"""
+"""Shared helpers for reproduction notebooks."""
 from __future__ import annotations
 
 import subprocess
@@ -14,10 +9,10 @@ from pathlib import Path
 def repo_root(start: Path | None = None) -> Path:
     path = (start or Path.cwd()).resolve()
     for candidate in [path, *path.parents]:
-        if (candidate / "figure3" / "fig3_reproducibility.py").is_file():
+        if (candidate / "s3_figure1" / "render_s3_fig1.py").is_file():
             return candidate
     raise FileNotFoundError(
-        "Could not locate repository root (expected figure3/fig3_reproducibility.py)."
+        "Could not locate repository root (expected s3_figure1/render_s3_fig1.py)."
     )
 
 
@@ -37,4 +32,3 @@ def run_script(relative_path: str) -> None:
         if result.stderr:
             print(result.stderr, file=sys.stderr, end="")
         raise RuntimeError(f"{relative_path} failed (exit {result.returncode})")
-

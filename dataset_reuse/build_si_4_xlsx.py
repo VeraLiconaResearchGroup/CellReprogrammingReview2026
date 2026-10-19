@@ -1,14 +1,9 @@
 #!/usr/bin/env python3
-"""Build SI_4_DatasetReuse.xlsx — styled like S1/S2 submission tables.
-
-Author: Paola Vera-Licona (Vera-Licona Research Group,
-University of Connecticut School of Medicine)
-"""
+"""Build SI_4_DatasetReuse.xlsx — styled like the S2 and S3 submission tables."""
 
 from __future__ import annotations
 
 import re
-import shutil
 from pathlib import Path
 
 import openpyxl
@@ -19,7 +14,6 @@ from openpyxl.utils import get_column_letter
 HERE = Path(__file__).resolve().parent
 DATA = HERE / "data"
 OUT = HERE / "SI_4_DatasetReuse.xlsx"
-OUT_LEGACY = HERE / "SI_4_DatasetReuse_legacy58.xlsx"
 
 ILLEGAL = re.compile(r"[\x00-\x08\x0b\x0c\x0e-\x1f]")
 
@@ -37,19 +31,21 @@ WRAP_ALIGN = Alignment(vertical="top", wrap_text=True)
 CENTER_ALIGN = Alignment(horizontal="center", vertical="center")
 
 TITLE = (
-    "Supporting Information S4 (dataset reuse). Validation-dataset catalog and method × dataset "
-    "reuse matrices (v2, 57 methods)"
+    "Supporting Information S4. Catalog of dataset and resource identifiers, with method × resource "
+    "matrices (v3, 60 methods)"
 )
 META = (
-    "Generated: 2026-05-27 (v2). Corpus: 57 computational cell reprogramming methods "
-    "(2013–2026). Source CSVs: dataset_reuse/data/ in this repository. "
+    "Generated: 2026-09-18 (v3). Corpus: 60 computational cell reprogramming methods "
+    "(2013–2026); TRAPT dropped; Reprogram-Seq, TF Atlas, Iterative TF screening, "
+    "and Briggs combinatorial TF landscape added. Source pipeline: "
+    "2_Tables&Figures/MappingDataReuseVisually/. "
     "Main text: cite as Supporting Information S4 (dataset reuse) (§5)."
 )
 MATRIX_META = (
     "Values: 1 = method cites this resource in validation / data availability; 0 = not catalogued. "
-    "Light blue = used. Column labels: Zenodo records show as “DOI 10.5281/zenodo.…” (resolve at "
-    "https://doi.org/…). Not every column is raw omics — see sheet S3_accession_key and the note "
-    "on S3 Table."
+    "Light blue = catalogued link. Column labels: Zenodo records show as “DOI 10.5281/zenodo.…” (resolve at "
+    "https://doi.org/…). Not every column is raw omics — see sheet S4_accession_key and the note "
+    "on S4 Table."
 )
 ZENODO_CANON = re.compile(r"^10\.5281/ZENODO\.(\d+)$", re.I)
 ZENODO_INLINE = re.compile(r"10\.5281/ZENODO\.(\d+)", re.I)
@@ -64,8 +60,17 @@ ZENODO_NOTE = (
 
 def clean_df(df: pd.DataFrame) -> pd.DataFrame:
     out = df.copy()
-    for col in out.select_dtypes(include=["object"]).columns:
-        out[col] = out[col].astype(str).map(lambda x: ILLEGAL.sub("", x) if x != "nan" else "")
+    for col in out.columns:
+        if pd.api.types.is_numeric_dtype(out[col]):
+            continue
+        cleaned = []
+        for value in out[col].tolist():
+            if value is None or (isinstance(value, float) and pd.isna(value)):
+                cleaned.append("")
+            else:
+                text = str(value)
+                cleaned.append("" if text == "nan" else ILLEGAL.sub("", text))
+        out[col] = cleaned
     return out
 
 
@@ -117,9 +122,9 @@ def format_datasets_used_list(ds: str) -> str:
 
 def accession_key_note(raw: str) -> str:
     if ZENODO_CANON.match(raw.strip()):
-        return "Zenodo deposit (see S3 Table footer); may be GRN/processed data/code, not raw GEO"
+        return "Zenodo deposit (see S4 Table footer); may be GRN/processed data/code, not raw GEO"
     if raw in ("ENCODE", "LINCS_L1000", "CMAP", "FANTOM5", "GPL570"):
-        return "Shared compendium (see S3_shared)"
+        return "Shared compendium (see S4_shared)"
     return ""
 
 
@@ -197,13 +202,13 @@ def write_table_sheet(
 
 
 def write_matrix_sheet(wb: openpyxl.Workbook, matrix: pd.DataFrame) -> None:
-    ws = wb.create_sheet("S3_matrix")
+    ws = wb.create_sheet("S4_matrix")
     header_row = 3
     data_start = header_row + 1
 
     ws.row_dimensions[1].height = 25
     ws.merge_cells(start_row=1, start_column=1, end_row=1, end_column=min(8, len(matrix.columns)))
-    ws.cell(1, 1, TITLE + " — binary method × dataset matrix").font = TITLE_FONT
+    ws.cell(1, 1, TITLE + " — binary method × resource matrix").font = TITLE_FONT
     ws.cell(1, 1).alignment = Alignment(wrap_text=True)
 
     ws.merge_cells(start_row=2, start_column=1, end_row=2, end_column=min(8, len(matrix.columns)))
@@ -258,7 +263,7 @@ def write_accession_key_sheet(wb: openpyxl.Workbook, matrix: pd.DataFrame) -> No
         )
     write_table_sheet(
         wb,
-        "S3_accession_key",
+        "S4_accession_key",
         [
             "Canonical ID (matrix key)",
             "Display label",
@@ -307,19 +312,19 @@ def main() -> None:
 
     footer = [
         "Summary Statistics:",
-        f"• Methods with ≥1 catalogued validation dataset: {with_data} / {n_methods} ({100 * with_data / n_methods:.1f}%)",
-        f"• Total unique datasets catalogued: {n_datasets}",
-        f"• Method–dataset edges: {edges}",
-        f"• Datasets used by exactly one method: {single} ({100 * single / n_datasets:.1f}%)",
-        f"• Datasets shared across methods: {len(shared)} (see sheet S3_shared)",
+        f"• Methods linked to ≥1 catalogued dataset or resource identifier: {with_data} / {n_methods} ({100 * with_data / n_methods:.1f}%).",
+        f"• Unique dataset and resource identifiers: {n_datasets}.",
+        f"• Method–resource links: {edges}.",
+        f"• Identifiers linked to exactly one method: {single} ({100 * single / n_datasets:.1f}%).",
+        f"• Identifiers linked to multiple methods: {len(shared)} (see sheet S4_shared).",
         "Repository types and Zenodo DOIs:",
         "• Catalog includes GEO/SRA/BioProject accessions, named compendia (ENCODE, LINCS L1000, …), "
         "and Zenodo DOIs formatted as DOI 10.5281/zenodo.<record> (open at https://doi.org/…).",
         f"• {ZENODO_NOTE}",
-        "• Full accession list with repository types: sheet S3_accession_key.",
+        "• Full accession list with repository types: sheet S4_accession_key.",
         "Column definitions:",
-        "• Datasets Used: semicolon-separated accessions from manual curation and programmatic extraction.",
-        "• Empty Datasets Used: no external accession reported, bundled/compendium-only, or model-based method.",
+        "• Catalogued dataset/resource identifiers: semicolon-separated accessions from manual curation and programmatic extraction.",
+        "• Empty catalogued dataset/resource identifiers: no external accession reported, bundled/compendium-only, or model-based method.",
     ]
 
     per_headers = [
@@ -328,8 +333,8 @@ def main() -> None:
         "PubMedID",
         "Year",
         "Type of Reprogramming",
-        "Datasets Used",
-        "N datasets",
+        "Catalogued dataset/resource identifiers",
+        "N identifiers",
     ]
     per_rows = []
     for i, row in per_method.iterrows():
@@ -347,20 +352,20 @@ def main() -> None:
             ]
         )
 
-    shared_headers = ["Dataset", "Type", "Methods (count)", "Methods"]
+    shared_headers = ["Dataset/resource identifier", "Type", "Methods (count)", "Methods"]
     shared_rows = [list(r) for r in shared.itertuples(index=False, name=None)]
 
     wb = openpyxl.Workbook()
     wb.remove(wb.active)
 
-    write_table_sheet(wb, "S3 Table", per_headers, per_rows, footer_lines=footer)
+    write_table_sheet(wb, "S4 Table", per_headers, per_rows, footer_lines=footer)
     write_table_sheet(
         wb,
-        "S3_shared",
+        "S4_shared",
         shared_headers,
         shared_rows,
         footer_lines=[
-            "Datasets utilized by more than one method (derived from S3_matrix). "
+            "Identifiers linked to more than one method (derived from S4_matrix). "
             "Zenodo entries are shown as DOI 10.5281/zenodo.<record>.",
         ],
     )
@@ -368,9 +373,7 @@ def main() -> None:
     write_matrix_sheet(wb, matrix)
 
     wb.save(OUT)
-    shutil.copy2(OUT, OUT_LEGACY)
     print(f"Wrote {OUT}")
-    print(f"Copied legacy mirror → {OUT_LEGACY}")
 
 
 if __name__ == "__main__":
