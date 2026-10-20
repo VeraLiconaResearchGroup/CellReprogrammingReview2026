@@ -1,4 +1,4 @@
-"""Render Supporting Information S3, Figure 1, the resource-audit figure.
+"""Render S4 Fig, the resource-audit figure.
 
 Two panels:
   A. Downloadable code and the four-item resource score, by explicitness class.
@@ -21,7 +21,7 @@ Design choices for the figure:
 
 The script is the single source of truth for the figure. It computes every
 number it draws from the audit spreadsheet
-(``SI_3_ReproducibilityAudit.xlsx``). Trip-wire asserts at the
+(``data/audit_source.csv``, aligned with SI_3 table). Trip-wire asserts at the
 bottom of ``compute_*`` functions match the headline numbers quoted in the
 Section 5 prose so the figure cannot silently drift away from the manuscript.
 
@@ -31,10 +31,11 @@ Section 5 prose so the figure stays focused on per-class method counts. A
 score of 4 of 4 means four public resources are present. It does not mean an
 example workflow was run to completion.
 
-Outputs (written beside the S3 workbook):
-  - S3_Fig1.pdf
-  - S3_Fig1.png
-  - S3_Fig1.tiff  (600 dpi, submission raster)
+Outputs (written in this folder):
+  - S4_fig.pdf
+  - S4_fig.png
+  - S4_fig.tiff  (600 dpi, submission raster)
+  - S4_fig.eps
 """
 
 from __future__ import annotations
@@ -53,7 +54,7 @@ from _fonts import configure_sans
 
 configure_sans()
 
-# Bundled audit CSV matches Supporting Information S3 (v3, 60 methods).
+# Bundled audit CSV matches SI_3 table (v3, 60 methods).
 # col 0 = '#'  (row index 1..60)
 # col 1 = Method Name
 # col 4 = Tool Avail   ('Yes', 'No', '⚠️OFFLINE')
@@ -341,10 +342,10 @@ def main() -> None:
     # Figure title and headline audit numbers live in the manuscript caption.
     draw_shared_legend(fig, ax_a, ax_b)
 
-    pdf_path = OUT_DIR / "S3_Fig1.pdf"
-    png_path = OUT_DIR / "S3_Fig1.png"
-    tiff_path = OUT_DIR / "S3_Fig1.tiff"
-    eps_path = OUT_DIR / "S3_Fig1.eps"
+    pdf_path = OUT_DIR / "S4_fig.pdf"
+    png_path = OUT_DIR / "S4_fig.png"
+    tiff_path = OUT_DIR / "S4_fig.tiff"
+    eps_path = OUT_DIR / "S4_fig.eps"
     _save_rgb(fig, png_path, 300)
     _save_rgb(fig, tiff_path, 600)
     fig.savefig(pdf_path, facecolor="white")

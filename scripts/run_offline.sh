@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Regenerate main-text Figures 1 and 2, Supporting Information S3 Figure 1, and S4.
+# Regenerate main-text Figures 1 and 2, S4 Fig, and SI_5 table.
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
@@ -15,15 +15,15 @@ echo "==> Main-text Figure 1 (assignment tree)"
 echo "==> Main-text Figure 2 (settings and classes)"
 (cd figure2 && "$PYTHON" preview_rows.py)
 
-echo "==> Supporting Information S3, Figure 1 (resource audit)"
-"$PYTHON" s3_figure1/render_s3_fig1.py
+echo "==> S4 Fig (resource audit)"
+"$PYTHON" s4_fig/render_s4_fig.py
 
-echo "==> Supporting Information S4 (dataset reuse xlsx)"
+echo "==> SI_5 table (dataset reuse)"
 (cd dataset_reuse && "$PYTHON" build_si_4_xlsx.py)
 
 echo ""
 echo "Done. Outputs:"
 echo "  figure1/Fig1_assignment.{pdf,png,tiff,eps}"
 echo "  figure2/Fig2_settings_classes.{pdf,png,tiff,eps}"
-echo "  s3_figure1/S3_Fig1.{pdf,png,tiff,eps}"
-echo "  dataset_reuse/SI_4_DatasetReuse.xlsx"
+echo "  s4_fig/S4_fig.{pdf,png,tiff,eps}"
+echo "  dataset_reuse/SI_5_DatasetReuse.xlsx"

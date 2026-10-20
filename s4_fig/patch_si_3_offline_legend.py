@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Insert explicit OFFLINE definition into SI_3_ReproducibilityAudit.xlsx legend."""
+"""Insert explicit OFFLINE definition into SI_3_ResourceAudit.xlsx legend."""
 
 from __future__ import annotations
 
@@ -9,7 +9,7 @@ import openpyxl
 from openpyxl.styles import Alignment, Font
 
 HERE = Path(__file__).resolve().parent
-XLSX = HERE / "SI_3_ReproducibilityAudit.xlsx"
+XLSX = HERE.parent / "data" / "SI_3_ResourceAudit.xlsx"
 SHEET = "Resource audit"
 
 # Insert after "• Tool availability:" (row 69).
@@ -45,8 +45,8 @@ BLOCKS: list[tuple[str, str | None, bool]] = [
         True,
     ),
     (
-        "During the original 51-method reproducibility audit (repository snapshot "
-        "10–11 December 2025), we tested each method's published access path the way a "
+        "During the original 51-method resource audit (10 to 11 December 2025), "
+        "we tested each method's published access path the way a "
         "reader would: open the URL given in the primary paper (desktop browser or "
         "equivalent direct HTTP request). OFFLINE means that interface did not become "
         "usable within the session (connection timed out, host unreachable, or equivalent "
@@ -74,7 +74,7 @@ BLOCKS: list[tuple[str, str | None, bool]] = [
     (
         "Note: DECCODE (row 31) is Tool Avail = Yes because source code is archived on Zenodo; "
         "its companion web UI (https://fantom.gsc.riken.jp/5/cellconv/) was also unreachable in "
-        "December 2025 and is documented in Supporting Information S2 (Code Availability), not as "
+        "December 2025 and is documented in SI_2 table (Code Availability), not as "
         "⚠️OFFLINE in column E.",
         None,
         True,
@@ -101,9 +101,10 @@ def _unmerge_row(ws, row: int) -> None:
 
 
 def _already_patched(ws) -> bool:
-    for row in range(INSERT_AT, min(INSERT_AT + 25, ws.max_row + 1)):
+    for row in range(1, ws.max_row + 1):
         val = ws.cell(row, 1).value
-        if val and "OFFLINE — operational definition" in str(val):
+        text = str(val or "")
+        if "OFFLINE" in text and "operational definition" in text:
             return True
     return False
 

@@ -110,61 +110,86 @@ def main() -> None:
 
     ax.text(0.08, Y(0.22), "A", fontsize=11, fontweight="bold", va="center")
 
+    # Question 1 stays. Class C0 is shorter, so its middle is matched to
+    # question 1; otherwise the Yes arrow slopes down.
+    q1_bottom, q1_h = 1.05, 0.72
+    q1_mid = q1_bottom - q1_h / 2
     n1 = wrap(
         "1. Is selection a direct score of target features or of observed screen outcomes, "
         "with no predictive response and no network-influence model?",
         4.15,
     )
-    box(ax, 0.28, Y(1.05), 4.35, 0.72, n1, weight="regular")
-    class_box(ax, 5.35, Y(0.92), 1.55, 0.42, "Class C0")
-    arrow(ax, 4.63, Y(0.69), 5.35, Y(0.71), "Yes")
+    box(ax, 0.28, Y(q1_bottom), 4.35, q1_h, n1, weight="regular")
+    c0_h = 0.42
+    class_box(ax, 5.35, Y(q1_mid + c0_h / 2), 1.55, c0_h, "Class C0")
+    arrow(ax, 4.63, Y(q1_mid), 5.35, Y(q1_mid), "Yes")
 
+    # Everything under question 1 moves down so the vertical No arrow has a shaft.
+    drop = 0.14
+
+    q2_bottom, q2_h = 1.95 + drop, 0.68
+    q2_mid = q2_bottom - q2_h / 2
     n2 = wrap(
         "2. Does selection use a predictive response, a learned inverse of one, "
         "or a certified control property of a stated model family?",
         3.75,
     )
-    box(ax, 0.28, Y(1.95), 4.05, 0.68, n2)
-    arrow(ax, 2.45, Y(1.05), 2.45, Y(1.27), "No", side="left")
+    box(ax, 0.28, Y(q2_bottom), 4.05, q2_h, n2)
+    arrow(ax, 2.45, Y(q1_bottom), 2.45, Y(q2_bottom - q2_h), "No", side="left")
 
+    # Question 2b shares question 2's middle, so its No arrow is horizontal.
+    q2b_h = 0.62
+    q2b_bottom = q2_mid + q2b_h / 2
     n2b = wrap(
         "2b. Network-influence score, with no response representation "
         "and no certified control property?",
         2.55,
     )
-    box(ax, 4.85, Y(1.95), 2.45, 0.62, n2b)
-    arrow(ax, 4.33, Y(1.61), 4.85, Y(1.64), "")
-    ax.text(4.59, Y(1.50), "No", ha="center", va="bottom", fontsize=8, color="#111827")
+    box(ax, 4.85, Y(q2b_bottom), 2.45, q2b_h, n2b)
+    arrow(ax, 4.33, Y(q2_mid), 4.85, Y(q2_mid), "")
+    ax.text(4.59, Y(q2_mid - 0.11), "No", ha="center", va="bottom", fontsize=8, color="#111827")
 
-    class_box(ax, 4.85, Y(2.90), 1.15, 0.38, "Class C1")
-    box(ax, 6.15, Y(2.90), 1.15, 0.38, "Unresolved")
-    arrow(ax, 5.42, Y(1.95), 5.42, Y(2.52), "Yes", side="left")
-    arrow(ax, 6.40, Y(1.95), 6.40, Y(2.52), "", side="right")
-    ax.text(6.48, Y(2.22), "No, or not\ndocumented", ha="left", va="center", fontsize=8, color="#111827")
+    c1_bottom = 2.90 + drop
+    class_box(ax, 4.85, Y(c1_bottom), 1.15, 0.38, "Class C1")
+    box(ax, 6.15, Y(c1_bottom), 1.15, 0.38, "Unresolved")
+    arrow(ax, 5.42, Y(q2b_bottom), 5.42, Y(c1_bottom - 0.38), "Yes", side="left")
+    arrow(ax, 6.40, Y(q2b_bottom), 6.40, Y(c1_bottom - 0.38), "", side="right")
+    ax.text(6.48, Y((q2b_bottom + c1_bottom - 0.38) / 2), "No, or not\ndocumented",
+            ha="left", va="center", fontsize=8, color="#111827")
 
+    q3_bottom = 3.83 + drop
     n3 = wrap(
         "3. Does selection use a proxy response or its learned inverse, without an "
         "explicit intervention-model evaluation or certified control property "
         "contributing to selection?",
         4.15,
     )
-    box(ax, 0.28, Y(3.83), 4.35, 0.72, n3)
-    arrow(ax, 2.45, Y(1.95), 2.45, Y(3.11), "Yes", side="left")
+    box(ax, 0.28, Y(q3_bottom), 4.35, 0.72, n3)
+    arrow(ax, 2.45, Y(q2_bottom), 2.45, Y(q3_bottom - 0.72), "Yes", side="left")
 
-    class_box(ax, 5.35, Y(3.68), 1.55, 0.42, "Class C2")
-    arrow(ax, 4.63, Y(3.47), 5.35, Y(3.47), "Yes")
+    class_box(ax, 5.35, Y(3.68 + drop), 1.55, 0.42, "Class C2")
+    arrow(ax, 4.63, Y(3.47 + drop), 5.35, Y(3.47 + drop), "Yes")
 
+    q4_bottom = 4.47 + drop
     n4 = "4. Does $u$ enter the intervention model,\nor does the certified property select $u$?"
-    box(ax, 0.28, Y(4.47), 4.35, 0.48, n4)
-    arrow(ax, 2.45, Y(3.83), 2.45, Y(3.99), "No", side="left")
+    box(ax, 0.28, Y(q4_bottom), 4.35, 0.48, n4)
+    arrow(ax, 2.45, Y(q3_bottom), 2.45, Y(q4_bottom - 0.48), "No", side="left")
 
-    class_box(ax, 5.35, Y(4.44), 1.55, 0.42, "Class C3")
-    arrow(ax, 4.63, Y(4.23), 5.35, Y(4.23), "Yes")
-    box(ax, 1.45, Y(5.32), 2.00, 0.36, "Unresolved")
-    arrow(ax, 2.45, Y(4.62), 2.45, Y(4.96), "")
-    ax.text(2.35, Y(4.58), "No, or not documented", ha="right", va="top", fontsize=8, color="#111827")
+    class_box(ax, 5.35, Y(4.44 + drop), 1.55, 0.42, "Class C3")
+    arrow(ax, 4.63, Y(4.23 + drop), 5.35, Y(4.23 + drop), "Yes")
+    # Longer shaft from question 4 down to Unresolved. The table rows give
+    # back the same distance so the canvas stays 7.85 in.
+    extend = 0.18
+    unresolved_h = 0.36
+    unresolved_bottom = 5.32 + drop + extend
+    box(ax, 1.45, Y(unresolved_bottom), 2.00, unresolved_h, "Unresolved")
+    arrow_top = q4_bottom + 0.04
+    arrow_bot = unresolved_bottom - unresolved_h
+    arrow(ax, 2.45, Y(arrow_top), 2.45, Y(arrow_bot), "")
+    ax.text(2.35, Y((arrow_top + arrow_bot) / 2), "No, or not documented",
+            ha="right", va="center", fontsize=8, color="#111827")
 
-    ax.text(0.08, Y(5.40), "B", fontsize=11, fontweight="bold", va="center")
+    ax.text(0.08, Y(5.40 + drop + extend), "B", fontsize=11, fontweight="bold", va="center")
 
     # Table
     headers = ["Class", "Input", "Selection step", "Output", "Examples"]
@@ -183,9 +208,9 @@ def main() -> None:
     ]
     col_w = [0.46, 1.95, 1.92, 1.78, 1.31]
     x0 = 0.04
-    row_h = 0.46
+    row_h = 0.415
     header_h = 0.28
-    table_top = 5.52
+    table_top = 5.52 + drop + extend
     # header
     x = x0
     for header, cw in zip(headers, col_w):

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build SI_4_DatasetReuse.xlsx — styled like the S2 and S3 submission tables."""
+"""Build SI_5_DatasetReuse.xlsx — styled like the S2 and S3 submission tables."""
 
 from __future__ import annotations
 
@@ -13,7 +13,7 @@ from openpyxl.utils import get_column_letter
 
 HERE = Path(__file__).resolve().parent
 DATA = HERE / "data"
-OUT = HERE / "SI_4_DatasetReuse.xlsx"
+OUT = HERE / "SI_5_DatasetReuse.xlsx"
 
 ILLEGAL = re.compile(r"[\x00-\x08\x0b\x0c\x0e-\x1f]")
 
@@ -31,21 +31,23 @@ WRAP_ALIGN = Alignment(vertical="top", wrap_text=True)
 CENTER_ALIGN = Alignment(horizontal="center", vertical="center")
 
 TITLE = (
-    "Supporting Information S4. Catalog of dataset and resource identifiers, with method × resource "
+    "SI_5 table. Catalog of dataset and resource identifiers, with method × resource "
     "matrices (v3, 60 methods)"
 )
 META = (
-    "Generated: 2026-09-18 (v3). Corpus: 60 computational cell reprogramming methods "
-    "(2013–2026); TRAPT dropped; Reprogram-Seq, TF Atlas, Iterative TF screening, "
-    "and Briggs combinatorial TF landscape added. Source pipeline: "
-    "2_Tables&Figures/MappingDataReuseVisually/. "
-    "Main text: cite as Supporting Information S4 (dataset reuse) (§5)."
+    "Catalogue passes. The first audit (10 December 2025) covered 51 methods "
+    "published from 2013 to 2025; published web-tool addresses were opened on "
+    "10 to 11 December 2025. On 4 May 2026, five methods were added: CANDiT (2025), "
+    "REVIVE (2025), SwitchTFI (2025), Atlas-guided T-cell programming (2026), and "
+    "REPROcode (2026). On 18 September 2026, four methods were added: Reprogram-Seq "
+    "(2019), TF Atlas (2023), Iterative TF screening (2025), and Briggs combinatorial "
+    "TF landscape (2026). Cite as SI_5 table (dataset reuse)."
 )
 MATRIX_META = (
     "Values: 1 = method cites this resource in validation / data availability; 0 = not catalogued. "
     "Light blue = catalogued link. Column labels: Zenodo records show as “DOI 10.5281/zenodo.…” (resolve at "
-    "https://doi.org/…). Not every column is raw omics — see sheet S4_accession_key and the note "
-    "on S4 Table."
+    "https://doi.org/…). Not every column is raw omics — see sheet S5_accession_key and the note "
+    "on SI_5 table."
 )
 ZENODO_CANON = re.compile(r"^10\.5281/ZENODO\.(\d+)$", re.I)
 ZENODO_INLINE = re.compile(r"10\.5281/ZENODO\.(\d+)", re.I)
@@ -60,17 +62,8 @@ ZENODO_NOTE = (
 
 def clean_df(df: pd.DataFrame) -> pd.DataFrame:
     out = df.copy()
-    for col in out.columns:
-        if pd.api.types.is_numeric_dtype(out[col]):
-            continue
-        cleaned = []
-        for value in out[col].tolist():
-            if value is None or (isinstance(value, float) and pd.isna(value)):
-                cleaned.append("")
-            else:
-                text = str(value)
-                cleaned.append("" if text == "nan" else ILLEGAL.sub("", text))
-        out[col] = cleaned
+    for col in out.select_dtypes(include=["object"]).columns:
+        out[col] = out[col].astype(str).map(lambda x: ILLEGAL.sub("", x) if x != "nan" else "")
     return out
 
 
@@ -105,10 +98,43 @@ def format_accession_display(raw: str) -> str:
     return text
 
 
-def zenodo_resolve_url(raw: str) -> str:
-    match = ZENODO_CANON.match(raw.strip())
+# One public homepage each. Labels that pool many records stay blank.
+HOMEPAGES = {
+    "ADDGENE": "https://www.addgene.org/",
+    "AGEANNO": "https://relab.xidian.edu.cn/AgeAnno/",
+    "AGING_ATLAS": "https://ngdc.cncb.ac.cn/aging/index",
+    "BIOGRID": "https://thebiogrid.org/",
+    "CLINICALTRIALS_GOV": "https://clinicaltrials.gov/",
+    "CMAP": "https://clue.io/",
+    "DEPMAP_ACHILLES": "https://depmap.org/portal/",
+    "DRUGAGE": "https://genomics.senescence.info/drugs/",
+    "ENCODE": "https://www.encodeproject.org/",
+    "FANTOM5": "https://fantom.gsc.riken.jp/5/",
+    "GTEX": "https://gtexportal.org/home/",
+    "LINCS_L1000": "https://lincsproject.org/",
+    "MULTITIMER": "https://github.com/saschajung/MultiTIMER",
+    "PANGLAODB": "https://panglaodb.se/",
+    "ROADMAP_EPIGENOMICS": "https://egg2.wustl.edu/roadmap/web_portal/",
+    "STRING": "https://string-db.org/",
+    "TABULA_MURIS": "https://tabula-muris.ds.czbiohub.org/",
+}
+
+
+def resolve_url(raw: str) -> str:
+    text = raw.strip()
+    match = ZENODO_CANON.match(text)
     if match:
         return f"https://doi.org/10.5281/zenodo.{match.group(1)}"
+    if text in HOMEPAGES:
+        return HOMEPAGES[text]
+    if text.startswith(("GSE", "GSM", "GPL")):
+        return f"https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc={text}"
+    if text.startswith(("SRR", "SRP", "SRX")):
+        return f"https://www.ncbi.nlm.nih.gov/sra/{text}"
+    if text.startswith(("PRJNA", "PRJEB")):
+        return f"https://www.ncbi.nlm.nih.gov/bioproject/{text}"
+    if text.startswith("E-MTAB"):
+        return f"https://www.ebi.ac.uk/biostudies/arrayexpress/studies/{text}"
     return ""
 
 
@@ -122,9 +148,13 @@ def format_datasets_used_list(ds: str) -> str:
 
 def accession_key_note(raw: str) -> str:
     if ZENODO_CANON.match(raw.strip()):
-        return "Zenodo deposit (see S4 Table footer); may be GRN/processed data/code, not raw GEO"
+        return "Zenodo deposit (see SI_5 table footer); may be GRN/processed data/code, not raw GEO"
     if raw in ("ENCODE", "LINCS_L1000", "CMAP", "FANTOM5", "GPL570"):
-        return "Shared compendium (see S4_shared)"
+        return "Shared compendium (see S5_shared)"
+    if raw == "ARACNE_VIPER_REGULONS":
+        return "No single public page. ARACNe, VIPER, and context-specific regulons are cited as a family of resources."
+    if raw == "GEO_BULK_MICROARRAY_COMPENDIUM":
+        return "No single GEO series. This label is a pooled microarray compendium."
     return ""
 
 
@@ -202,7 +232,7 @@ def write_table_sheet(
 
 
 def write_matrix_sheet(wb: openpyxl.Workbook, matrix: pd.DataFrame) -> None:
-    ws = wb.create_sheet("S4_matrix")
+    ws = wb.create_sheet("S5_matrix")
     header_row = 3
     data_start = header_row + 1
 
@@ -257,13 +287,13 @@ def write_accession_key_sheet(wb: openpyxl.Workbook, matrix: pd.DataFrame) -> No
                 raw,
                 format_accession_display(raw),
                 dataset_type(raw),
-                zenodo_resolve_url(raw),
+                resolve_url(raw),
                 accession_key_note(raw),
             ]
         )
     write_table_sheet(
         wb,
-        "S4_accession_key",
+        "S5_accession_key",
         [
             "Canonical ID (matrix key)",
             "Display label",
@@ -316,12 +346,12 @@ def main() -> None:
         f"• Unique dataset and resource identifiers: {n_datasets}.",
         f"• Method–resource links: {edges}.",
         f"• Identifiers linked to exactly one method: {single} ({100 * single / n_datasets:.1f}%).",
-        f"• Identifiers linked to multiple methods: {len(shared)} (see sheet S4_shared).",
+        f"• Identifiers linked to multiple methods: {len(shared)} (see sheet S5_shared).",
         "Repository types and Zenodo DOIs:",
         "• Catalog includes GEO/SRA/BioProject accessions, named compendia (ENCODE, LINCS L1000, …), "
         "and Zenodo DOIs formatted as DOI 10.5281/zenodo.<record> (open at https://doi.org/…).",
         f"• {ZENODO_NOTE}",
-        "• Full accession list with repository types: sheet S4_accession_key.",
+        "• Full accession list with repository types: sheet S5_accession_key.",
         "Column definitions:",
         "• Catalogued dataset/resource identifiers: semicolon-separated accessions from manual curation and programmatic extraction.",
         "• Empty catalogued dataset/resource identifiers: no external accession reported, bundled/compendium-only, or model-based method.",
@@ -358,14 +388,14 @@ def main() -> None:
     wb = openpyxl.Workbook()
     wb.remove(wb.active)
 
-    write_table_sheet(wb, "S4 Table", per_headers, per_rows, footer_lines=footer)
+    write_table_sheet(wb, "SI_5 table", per_headers, per_rows, footer_lines=footer)
     write_table_sheet(
         wb,
-        "S4_shared",
+        "S5_shared",
         shared_headers,
         shared_rows,
         footer_lines=[
-            "Identifiers linked to more than one method (derived from S4_matrix). "
+            "Identifiers linked to more than one method (derived from S5_matrix). "
             "Zenodo entries are shown as DOI 10.5281/zenodo.<record>.",
         ],
     )

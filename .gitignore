@@ -12,9 +12,10 @@ notebooks/.ipynb_checkpoints/
 figure1/Fig1_assignment.*
 !figure1/fig1_assignment.py
 figure2/Fig2_settings_classes.*
-s3_figure1/S3_Fig1.*
+s4_fig/S4_fig.*
 
-# Regenerated SI_4 workbook at package root of dataset_reuse/
-# Keep input CSVs; the xlsx is regenerated (a frozen copy also lives in supporting_information/)
+# Regenerated SI_5 workbook. Input CSVs are kept; a frozen copy is in supporting_information/
+dataset_reuse/SI_5_DatasetReuse.xlsx
+# Older local workbook names from before SI_5
 dataset_reuse/SI_4_DatasetReuse.xlsx
 dataset_reuse/SI_4_DatasetReuse*.xlsx

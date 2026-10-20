@@ -9,10 +9,10 @@ from pathlib import Path
 def repo_root(start: Path | None = None) -> Path:
     path = (start or Path.cwd()).resolve()
     for candidate in [path, *path.parents]:
-        if (candidate / "s3_figure1" / "render_s3_fig1.py").is_file():
+        if (candidate / "s4_fig" / "render_s4_fig.py").is_file():
             return candidate
     raise FileNotFoundError(
-        "Could not locate repository root (expected s3_figure1/render_s3_fig1.py)."
+        "Could not locate repository root (expected s4_fig/render_s4_fig.py)."
     )
 
 

@@ -46,7 +46,7 @@ Generated: 2026-09-18 (v3). 51-method audit: January/December 2025; 6-method v2 
 42,Transfer Learning,38437548,I;P;T,Yes,✓,✓,✓,4/4,✗,✗,✗,✓,✗,1/5,
 43,CAESAR,39171985,D;P;T,Yes,✓,✓,~,3/4,✗,✗,✗,✗,✗,0/5,
 44,DIRECTEUR,38273708,T,Yes,~,✓,✗,2/4,✗,✗,✗,✗,✗,0/5,
-45,pbn-STAC,N/A,P,Yes,✓,✓,✓,4/4,✗,✗,✗,✓,✗,1/5,
+45,pbn-STAC,Not indexed in PUBMED,P,Yes,✓,✓,✓,4/4,✗,✗,✗,✓,✗,1/5,
 46,CellCartographer,40382774,D,Yes,✓,✓,~,3/4,✗,✗,✗,~,✗,0/5,
 47,BoNesis+CABEAN,41006334,D;T,Yes,✓,✓,✓,4/4,✓,✓,✗,✓,✗,3/5,
 48,TFcomb,40210438,D;I;T,Yes,✓,✓,✓,4/4,✓,✓,✗,✓,✗,3/5,
@@ -56,7 +56,7 @@ Generated: 2026-09-18 (v3). 51-method audit: January/December 2025; 6-method v2 
 52,REVIVE,41296513,P,Yes,✓,~,✗,2/4,✓,✗,✗,✗,✗,1/5,YES (red in xlsx)
 53,CANDiT,41118768,P,Yes,✗,✓,~,2/4,✗,✗,✗,✗,✗,0/5,YES (red in xlsx)
 54,SwitchTFI,41331466,D,Yes,✓,✓,✓,4/4,✓,✓,✓,✓,✗,4/5,YES (red in xlsx)
-55,Atlas-guided,41639465,P,Yes,✓,✓,✓,4/4,✓,✗,✗,~,✗,1/5,YES (red in xlsx)
+55,Atlas-guided T-cell programming,41639465,P,Yes,✓,✓,✓,4/4,✓,✗,✗,~,✗,1/5,YES (red in xlsx)
 56,REPROcode,41539305,T,Yes,✓,✓,✓,4/4,~,✓,✓,✓,✗,3/5,YES (red in xlsx)
 57,Reprogram-Seq,31216470,T,Yes,~,✓,✗,2/4,✓,✓,✓,✗,✗,3/5,YES (v3)
 58,TF Atlas,36608654,D,Yes,✓,✗,✗,2/4,✗,✓,✓,✗,✗,2/5,YES (v3)

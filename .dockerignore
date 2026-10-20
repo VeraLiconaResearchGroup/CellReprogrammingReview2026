@@ -8,5 +8,5 @@ __pycache__
 .ipynb_checkpoints
 figure1/Fig1_assignment.*
 figure2/Fig2_settings_classes.*
-s3_figure1/S3_Fig1.*
-dataset_reuse/SI_4_DatasetReuse*.xlsx
+s4_fig/S4_fig.*
+dataset_reuse/SI_5_DatasetReuse.xlsx
